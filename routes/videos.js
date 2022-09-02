@@ -15,8 +15,16 @@ function getVideo(id) {
 
 router.route("/").get((request, response) => {
     const allVideos = getAllVideos();
-    //return response.status(200).send(allVideos);
-    response.status(200).send(allVideos);
+    let toSend = allVideos.map((e) => {
+        return {
+            id:e.id,
+            title:e.title,
+            channel:e.channel,
+            image:e.image
+        }
+    });
+    console.log(toSend);
+    response.status(200).send(toSend);
 });
 
 router.get("/:id"), (request, response) => {
