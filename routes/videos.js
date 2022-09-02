@@ -9,10 +9,6 @@ function getAllVideos() {
     return videoData;
 }
 
-function getVideo(id) {
-
-}
-
 router.route("/").get((request, response) => {
     const allVideos = getAllVideos();
     let toSend = allVideos.map((e) => {
@@ -23,12 +19,14 @@ router.route("/").get((request, response) => {
             image:e.image
         }
     });
-    console.log(toSend);
     response.status(200).send(toSend);
 });
 
-router.get("/:id"), (request, response) => {
-    const videoMeta = "";
-}
+router.route("/:id").get((request, response) => {
+    let id = request.params.id;
+    const allVideos = getAllVideos();
+    let toSend = allVideos.filter(e => e.id === id);
+    response.status(200).send(toSend);
+});
 
 module.exports = router;
