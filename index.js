@@ -8,6 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/videos", videoRoute);
+app.use(express.static('public'));
+app.use('/images', express.static('images'));
 
 app.get("/", function (req, res ) {
     console.log("API loaded");
