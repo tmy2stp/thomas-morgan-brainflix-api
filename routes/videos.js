@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require("fs");
 const crypto = require("crypto");
 const videoDataPath = './data/videos.json';
+const imgPath = (process.env.API_PORT == null) ? 'http://localhost:8001/images/homer.jpg' : 'http://localhost:8000/images/homer.jpg';
 
 function getAllVideos() {
     let rawVideoData = fs.readFileSync(videoDataPath);
@@ -35,7 +36,7 @@ router.route("/")
     let newVideo = {
         title:title,
         channel:channel,
-        image:"http://localhost:8000/images/homer.jpg",
+        image:imgPath,
         description:description,
         views:0,
         likes:0,
