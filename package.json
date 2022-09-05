@@ -1,0 +1,11 @@
+{
+    "name": "thomas-morgan-brainflix-api",
+    "version": "1.0.0",
+    "description": "API serving videos for BrainFlix",
+    "main": "index.js",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.2",
+        "express": "^4.18.1"
+    }
+}
